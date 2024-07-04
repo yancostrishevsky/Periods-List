@@ -1,5 +1,9 @@
+import { DataType } from './data-types.enum';
+
 export interface Period {
-  name : string;
-  dataTypes : string[];
-  tasks : number;
+  id: number;
+  name: string;
+  dataTypes: DataType[];
+  tasks: number;
+  dataTypesText?: string;
 }

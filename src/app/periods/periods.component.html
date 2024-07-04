@@ -2,28 +2,18 @@
   <table>
     <thead>
       <tr>
-        <th>
-          Nazwa
-        </th>
-        <th>
-          Typ danych
-        </th>
-        <th>
-          Liczba zadań
-        </th>
+        <th>Nazwa</th>
+        <th>Typ danych</th>
+        <th>Liczba zadań</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let period of periods">
+        <td>{{period.name}}</td>
         <td>
-          {{period.name}}
+          <span class="ellipsis">{{period.dataTypesText}}</span>
         </td>
-        <td>
-          <span class="ellipsis">{{period.dataTypes.join(', ') | cutText:30 }}</span>
-        </td>
-        <td>
-          {{period.tasks}}
-        </td>
+        <td>{{period.tasks}}</td>
       </tr>
     </tbody>
   </table>

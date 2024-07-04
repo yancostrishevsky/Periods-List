@@ -1,24 +1,29 @@
-import { Period } from "./period";
+import { Period } from './period';
+import { DataType } from './data-types.enum';
 
 export const PERIODS: Period[] = [
   {
+    id: 1,
     name: "Codzienny(Pon-Pt)",
-    dataTypes: ["Komputery", "pliki", "Dane sieciowe"],
+    dataTypes: [DataType.Computers, DataType.Files, DataType.NetworkData],
     tasks: 0
   },
   {
+    id: 2,
     name: "Tygodniowy(Pon-Pt)",
-    dataTypes: ["Komputery", "pliki","foldery", "Dane sieciowe"],
+    dataTypes: [DataType.Computers, DataType.Files, DataType.Folders, DataType.NetworkData],
     tasks: 2
   },
   {
+    id: 3,
     name: "Miesięczny(1-szy dzień miesiąca)",
-    dataTypes: ["Komputery", "pliki", "Dane sieciowe"],
+    dataTypes: [DataType.Computers, DataType.Files, DataType.NetworkData],
     tasks: 1
   },
   {
+    id: 4,
     name: "Co 10 dni pracy stacji roboczej komputera",
-    dataTypes: ["Komputery", "stacje robocze"],
+    dataTypes: [DataType.Computers, DataType.Workstations],
     tasks: 0
-  },
+  }
 ];
