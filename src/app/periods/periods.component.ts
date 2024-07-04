@@ -1,23 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Period } from '../period';
 import { PERIODS } from '../mock-periods';
+import { PeriodService } from '../services/period.service';
 @Component({
   selector: 'app-periods',
   templateUrl: './periods.component.html',
   styleUrls: ['./periods.component.scss']
 })
-export class PeriodsComponent {
-  periods = PERIODS;
+export class PeriodsComponent implements OnInit {
+  periods: Period[] = [];
 
-  getDisplayedText(dataTypes: string[]): string{
-    const maxLenght = 30;
-    const joinedText = dataTypes.join(', ');
+  constructor(private periodService: PeriodService) { }
 
-    if (joinedText.length > maxLenght){
-      return joinedText.substring(0, maxLenght) + '...';
-    }
-    else {
-      return joinedText;
-    }
+  ngOnInit(): void {
+    this.getPeriods();
+  }
+
+  getPeriods(): void {
+    this.periodService.getPeriods().subscribe(periods => this.periods = periods);
   }
 }

@@ -19,7 +19,7 @@
           {{period.name}}
         </td>
         <td>
-          <span class="ellipsis">{{getDisplayedText(period.dataTypes)}}</span>
+          <span class="ellipsis">{{period.dataTypes.join(', ') | cutText:30 }}</span>
         </td>
         <td>
           {{period.tasks}}
