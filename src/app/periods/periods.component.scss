@@ -1,0 +1,31 @@
+.table-container {
+  margin: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #2e2e2e;
+}
+
+th, td {
+  border-bottom: 1px solid #e3e3fa;
+  padding: 16px;
+  text-align: left;
+}
+
+th {
+  font-weight: 700;
+}
+
+
+.ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

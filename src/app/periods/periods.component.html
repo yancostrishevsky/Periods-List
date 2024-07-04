@@ -1,0 +1,30 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Nazwa
+        </th>
+        <th>
+          Typ danych
+        </th>
+        <th>
+          Liczba zadań
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let period of periods">
+        <td>
+          {{period.name}}
+        </td>
+        <td>
+          <span class="ellipsis">{{getDisplayedText(period.dataTypes)}}</span>
+        </td>
+        <td>
+          {{period.tasks}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
