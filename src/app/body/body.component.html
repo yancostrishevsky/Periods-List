@@ -1,0 +1,13 @@
+<tbody>
+    <ng-container list-body>
+        <tr *ngFor="let period of periods">
+            <td>{{ period.name }}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let dataType of period.dataTypes">{{ dataType }}</li>
+                </ul>
+            </td>
+            <td>{{ period.tasks }}</td>
+        </tr>
+    </ng-container>
+</tbody>

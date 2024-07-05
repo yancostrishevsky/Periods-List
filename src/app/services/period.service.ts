@@ -1,26 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import { Period } from '../period';
 import { PERIODS } from '../mock-periods';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class PeriodService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  private periodsUrl = 'api/periods';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   getPeriods(): Observable<Period[]> {
-    const periodsWithCutText = PERIODS.map(period => ({
-      ...period,
-      dataTypesText: this.getCutText(period.dataTypes.join(', '), 30)
-    }));
-    return of(periodsWithCutText);
+    return this.http.get<Period[]>(this.periodsUrl)
+      .pipe(
+        tap(_ => console.log('Dane otrzymane')),
+        catchError(this.handleError<Period[]>('getPeriods', []))
+      );
   }
 
-  private getCutText(value: string, maxLength: number): string {
-    if (!value) return '';
-    if (value.length <= maxLength) return value;
-    return value.substring(0, maxLength) + '...';
+  private handleError<T>(operation: string, defaultValue: T): (error: any) => Observable<T> {
+    return (error: any): Observable<T> => {
+      console.error(`Error: ${operation}:`, error);
+      return of(defaultValue);
+    };
   }
+
 }

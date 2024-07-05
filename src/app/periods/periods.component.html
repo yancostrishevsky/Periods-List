@@ -1,20 +1,4 @@
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Nazwa</th>
-        <th>Typ danych</th>
-        <th>Liczba zadań</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let period of periods">
-        <td>{{period.name}}</td>
-        <td>
-          <span class="ellipsis">{{period.dataTypesText}}</span>
-        </td>
-        <td>{{period.tasks}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<app-list>
+    <app-header [header]="['Nazwa', 'Typy Danych', 'Zadania']"></app-header>
+    <app-body [periods]="periods"></app-body>
+</app-list>

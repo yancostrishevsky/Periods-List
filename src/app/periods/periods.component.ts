@@ -10,7 +10,7 @@ import { PeriodService } from '../services/period.service';
 })
 export class PeriodsComponent implements OnInit {
   periods: Period[] = [];
-
+  header: string[] = ["asasa", "asdasdas", "asdasda"];
   constructor(private periodService: PeriodService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
