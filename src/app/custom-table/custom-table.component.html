@@ -1,0 +1,27 @@
+<table class="custom-table">
+    <thead>
+      <tr>
+        <ng-container *ngFor="let column of columns">
+          <th>
+            <ng-container *ngIf="column.headerTemplate; else defaultHeader">
+              <ng-container *ngTemplateOutlet="column.headerTemplate"></ng-container>
+            </ng-container>
+            <ng-template #defaultHeader>{{ column.header }}</ng-template>
+          </th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of dataSource">
+        <ng-container *ngFor="let column of columns">
+          <td>
+            <ng-container *ngIf="column.cellTemplate; else defaultCell">
+              <ng-container *ngTemplateOutlet="column.cellTemplate; context: { $implicit: row[column.key], row: row }"></ng-container>
+            </ng-container>
+            <ng-template #defaultCell>{{ row[column.key] }}</ng-template>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+  

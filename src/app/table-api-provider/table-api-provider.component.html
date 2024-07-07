@@ -1,0 +1,18 @@
+<app-custom-table [dataSource]="data$ | async">
+  
+    <app-column key="name" header="Nazwa">
+    </app-column>
+  
+    <app-column key="dataTypes" header="Typ danych">
+    </app-column>
+  
+    <app-column key="tasks" header="Zadania">
+      <ng-template #headerTemplate>
+        <span>Zadania</span>
+      </ng-template>
+      <ng-template #cellTemplate let-value>
+        <span>{{ value }}</span> 
+      </ng-template>
+    </app-column>
+  </app-custom-table>
+  
